@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=19.0">
+    <link rel="stylesheet" href="style.css?v=20.0">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -54,15 +54,15 @@
                         <p>Ta plateforme interactive pour réviser et maîtriser tes connaissances en SVT à l'école Maïmo.</p>
                         <div class="hero-actions">
                             <button class="hero-card secondary" onclick="selectLevel('2nde')">
-                                <span class="hero-emoji">📚</span>
+                                <i data-lucide="microscope"></i>
                                 <span>Entrer en Seconde</span>
                             </button>
                             <button class="hero-card" onclick="selectLevel('1ere')">
-                                <i data-lucide="graduation-cap"></i>
+                                <i data-lucide="dna"></i>
                                 <span>Entrer en Première</span>
                             </button>
                             <button class="hero-card secondary" onclick="selectLevel('term')">
-                                <span class="hero-emoji">🎓</span>
+                                <i data-lucide="brain"></i>
                                 <span>Entrer en Terminale</span>
                             </button>
                         </div>
@@ -84,12 +84,9 @@
                 </div>
 
                 <!-- SUBJECT TABS (Visible only in Chapters view) -->
-                <div id="subject-tabs-container">
+                <div id="subject-tabs-container" style="display: none;">
                     <div id="subject-tabs" class="subject-tabs">
                         <button class="sub-tab active" data-subject="all">Tous</button>
-                        <button class="sub-tab" data-subject="physique">Physique</button>
-                        <button class="sub-tab" data-subject="chimie">Chimie</button>
-                        <button class="sub-tab" data-subject="protocoles">Protocoles</button>
                     </div>
                 </div>
 
@@ -152,7 +149,7 @@
         <div id="toast"></div>
     </div>
 
-    <script src="script.js?v=19.0"></script>
+    <script src="script.js?v=20.0"></script>
     <script>
         lucide.createIcons();
         function copyLink() {
