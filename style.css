@@ -1,0 +1,683 @@
+/*
+ * MAIMOLAB V3 - STYLE.CSS
+ * PERSONALIZED FOR MAÏMO SCHOOL
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary: #0ea5e9; /* Bleu Sky Électrique */
+    --primary-soft: #f0f9ff;
+    --secondary: #64748b;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text: #0f172a;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    
+    --physique: #0ea5e9;
+    --chimie: #059669;
+    --protocoles: #f59e0b; /* Nouvel Ambre pour les protocoles */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+/* HEADER */
+header {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    color: var(--primary);
+}
+
+.brand-top {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.directed-by {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-left: 3.4rem;
+    opacity: 0.7;
+    margin-top: -2px;
+}
+
+.icon-circle {
+    background: var(--primary-soft);
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+}
+
+/* SEARCH */
+.search-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 300px;
+}
+
+.search-wrap i {
+    color: var(--text-muted);
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+.search-wrap input {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 50px; /* Bordure totalement arrondie */
+    font-size: 0.95rem;
+    background: white;
+    transition: all 0.2s;
+}
+
+.search-wrap input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* LEVEL BAR (Hidden by default, used as breadcrumb logic) */
+.level-bar {
+    display: none; /* We use the Home view to select level now */
+}
+
+/* HERO SECTION (HOME) */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 1rem;
+    min-height: 60vh;
+}
+
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.hero-card {
+    background: white;
+    border: 2px solid var(--border);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius);
+    width: 250px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.hero-card svg,
+.hero-card .hero-emoji {
+    width: 64px; height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.hero-card svg {
+    padding: 3px; /* Réduit très légèrement la taille visuelle (58px utiles) sans casser l'alignement de 64px */
+    box-sizing: border-box;
+}
+
+.hero-card .hero-emoji {
+    font-size: 36px; 
+}
+
+.hero-card [data-lucide="graduation-cap"] {
+    color: #475569; /* Gris foncé (Noir plus clair) */
+    fill: #475569;  
+}
+
+.hero-card span {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.hero-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 30px rgba(37,99,235,0.1);
+}
+
+.hero-card.secondary i { color: var(--chimie); }
+.hero-card.secondary:hover { border-color: var(--chimie); box-shadow: 0 20px 30px rgba(5,150,105,0.1); }
+
+/* BREADCRUMB & SUBJECT TABS */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+#level-label {
+    color: var(--primary);
+    background: var(--primary-soft);
+    padding: 0.2rem 0.75rem;
+    border-radius: 8px;
+}
+
+.subject-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.sub-tab {
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    background: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-muted);
+}
+
+.sub-tab.active {
+    background: var(--text);
+    color: white;
+    border-color: var(--text);
+}
+
+.sub-tab:hover:not(.active) {
+    background: var(--bg);
+    border-color: var(--text-muted);
+}
+
+/* CHAPTER NAVIGATION TABS */
+.chapter-nav-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    background: var(--bg);
+    padding: 0.4rem;
+    border-radius: 50px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid var(--border);
+}
+
+.nav-tab {
+    padding: 0.6rem 2rem;
+    border-radius: 50px;
+    border: none;
+    background: transparent;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-muted);
+}
+
+.nav-tab.active {
+    background: white;
+    color: var(--primary);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.nav-tab:hover:not(.active) {
+    color: var(--text);
+}
+
+/* VIEW HEADER */
+.view-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.view-header h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+#back-btn {
+    background: var(--primary-soft);
+    color: var(--primary);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+/* GRID CONTAINER */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* CHAPTER CARD */
+.chapter-card {
+    background: white;
+    padding: 1.75rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.chapter-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    border-color: var(--primary);
+}
+
+.chapter-card .subj-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+.chapter-card .subj-dot.physique { background: var(--physique); }
+.chapter-card .subj-dot.chimie { background: var(--chimie); }
+.chapter-card .subj-dot.protocoles { background: var(--protocoles); }
+
+.chapter-card h3 {
+    font-size: 1.1rem;
+    line-height: 1.3;
+    flex: 1;
+}
+
+.chapter-card .card-info {
+    font-size: 0.9rem; /* Légèrement plus gros */
+    color: var(--text-muted);
+    font-weight: 700; /* Un peu plus gras */
+}
+
+/* FORMULA CARD */
+.formula-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.formula-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.card-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    width: fit-content;
+    margin-bottom: 0.75rem;
+}
+
+.card-tag.physique { background: #e0f2fe; color: #0369a1; }
+.card-tag.chimie { background: #d1fae5; color: #065f46; }
+.card-tag.protocoles { background: #fef3c7; color: #92400e; }
+
+/* PROTOCOL CARDS EXTRA STYLE */
+.proto-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fffbeb; /* Doux fond ambré */
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin: 1rem auto;
+    transition: transform 0.2s ease;
+    border: none;
+}
+
+.formula-card:hover .proto-icon-wrapper {
+    background: #fef3c7;
+    transform: scale(1.05);
+}
+
+.proto-svg {
+    width: 32px;
+    height: 32px;
+    color: #f59e0b; /* Couleur orange des protocoles */
+    stroke-width: 1.5px;
+}
+
+.card-eqn {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem; /* Réduit légèrement par défaut pour plus de flexibilité */
+    padding: 1.5rem 0.5rem;
+    overflow: hidden; /* Empêche le débordement sale */
+    width: 100%;
+    text-align: center;
+}
+
+/* Cas spécial pour la carte "Caractéristiques de l'image" */
+.formula-card[data-id="opt-caract"] .card-eqn {
+    font-size: 0.88rem; 
+    line-height: 1.35;
+    padding: 0.5rem 0.2rem;
+}
+
+.bottom-legend-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 1rem 0;
+}
+
+.unit-pill {
+    background: #f8fafc;
+    border-radius: 20px;
+    padding: 0.35rem 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+}
+
+.pill-arrow { color: var(--primary); font-weight: 800; }
+.pill-unit { color: var(--primary); opacity: 0.9; }
+
+.card-footer {
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* MODAL */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-window {
+    background: white;
+    width: 90%;
+    max-width: 550px;
+    max-height: 90vh;
+    border-radius: var(--radius);
+    position: relative;
+    padding: 2.5rem;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: none; border: none;
+    cursor: pointer; color: var(--text-muted);
+}
+
+.modal-badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.modal-badge.physique { background: #e0f2fe; color: #0369a1; }
+.modal-badge.chimie { background: #d1fae5; color: #065f46; }
+.modal-badge.protocoles { background: #fef3c7; color: #92400e; }
+
+.modal-header h2 { margin-top: 0.5rem; font-size: 1.5rem; }
+
+.modal-tabs {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    border-bottom: 2px solid var(--border);
+}
+
+.tab-trigger {
+    padding: 0.5rem 0.25rem;
+    background: none; border: none;
+    font-weight: 700; cursor: pointer;
+    color: var(--text-muted);
+    position: relative;
+}
+
+.tab-trigger.active { color: var(--primary); }
+.tab-trigger.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 2px; background: var(--primary);
+}
+
+#modal-def, #modal-prop {
+    white-space: pre-line;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: #334155;
+    padding: 0.5rem 0;
+}
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.math-display {
+    background: var(--bg);
+    padding: 2rem;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.units-legend {
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.units-legend h4 { 
+    margin-bottom: 0.5rem; 
+    font-size: 0.8rem; 
+    color: var(--text-muted); 
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.modal-units-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.modal-unit-item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    background: transparent;
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.modal-unit-item:hover {
+    background: var(--bg);
+}
+
+.mu-sym {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.95rem;
+    font-family: serif;
+    font-style: italic;
+}
+
+.mu-details {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+}
+
+.mu-name {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.mu-unit {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+#copy-btn {
+    position: fixed;
+    bottom: 80px; 
+    right: 24px;
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 50px;
+    padding: 14px 24px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(37,99,235,0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+}
+
+#copy-btn:hover { transform: translateY(-3px); background: var(--primary); color: white; }
+
+#toast {
+    position: fixed;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #111;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    opacity: 0;
+    transition: all 0.3s;
+    pointer-events: none;
+    z-index: 998;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+#counter {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin: 2rem 0;
+}
+
+.hidden { display: none; }
+.empty-state { text-align: center; padding: 4rem 1rem; color: #888; }
+
+@media (max-width: 640px) {
+    .header-inner { flex-direction: column; align-items: flex-start; }
+    .search-wrap { min-width: 100%; }
+}
